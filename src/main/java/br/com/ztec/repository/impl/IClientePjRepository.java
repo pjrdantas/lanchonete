@@ -3,7 +3,7 @@ package br.com.ztec.repository.impl;
 
 import java.util.List;
 
-import br.com.ztec.model.dto.TbClientePjDTO;
+import br.com.ztec.model.dto.ClientePjDTO;
 
 
 
@@ -11,23 +11,23 @@ import br.com.ztec.model.dto.TbClientePjDTO;
 
 
 
-public interface ItbClientePjDAO {
+public interface IClientePjRepository {
 	
     /**
      * INCLUIR CLIENTE PESSOA JURIDICA
-     * @param tbClientePjDTO
+     * @param clientePjDTO
      * @throws Exception
      * @throws Throwable
      */
-    void addTbClientePjDTO(TbClientePjDTO tbClientePjDTO)  throws Exception, Throwable;
+    void addTbClientePjDTO(ClientePjDTO clientePjDTO)  throws Exception, Throwable;
     
     /**
      * EDITAR CLIENTE PESSOA JURIDICA
-     * @param tbClientePjDTO
+     * @param clientePjDTO
      * @throws Exception
      * @throws Throwable
      */
-    void updateTbClientePjDTO(TbClientePjDTO tbClientePjDTO)  throws Exception, Throwable;
+    void updateTbClientePjDTO(ClientePjDTO clientePjDTO)  throws Exception, Throwable;
     
     /**
      * LISTAR TODOS CLIENTES PESSOA JURIDICA
@@ -35,7 +35,7 @@ public interface ItbClientePjDAO {
      * @throws Exception
      * @throws Throwable
      */
-    List<TbClientePjDTO> getAllTbClientePjs()  throws Exception, Throwable;
+    List<ClientePjDTO> getAllTbClientePjs()  throws Exception, Throwable;
     
     /**
      * PESQUISAR CLIENTE PESSOA JURIDICA POR ID
@@ -44,7 +44,7 @@ public interface ItbClientePjDAO {
      * @throws Exception
      * @throws Throwable
      */
-    TbClientePjDTO getTbClientePjById(int id)  throws Exception, Throwable;
+    ClientePjDTO getTbClientePjById(int id)  throws Exception, Throwable;
     
     /**
      * DELETAR CLIENTE PESSOA JURIDICA POR ID

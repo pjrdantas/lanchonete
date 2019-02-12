@@ -2,28 +2,28 @@ package br.com.ztec.service.impl;
 
 import java.util.List;
 
-import br.com.ztec.model.dto.TbClientePfDTO;
+import br.com.ztec.model.dto.ClientePfDTO;
 
 
 
 
-public interface ITbClientePfService {
+public interface IClientePfService {
 	
 	/**
 	 * 
-	 * @param tbClientePfDTO
+	 * @param clientePfDTO
 	 * @throws Exception
 	 * @throws Throwable
 	 */
-    void addTbClientePfDTO(TbClientePfDTO tbClientePfDTO)   throws Exception, Throwable;
+    void addClientePfDTO(ClientePfDTO clientePfDTO)   throws Exception, Throwable;
     
     /**
      * 
-     * @param tbClientePfDTO
+     * @param clientePfDTO
      * @throws Exception
      * @throws Throwable
      */
-    void updateTbClientePfDTO(TbClientePfDTO tbClientePfDTO)  throws Exception, Throwable;
+    void updateClientePfDTO(ClientePfDTO clientePfDTO)  throws Exception, Throwable;
     
     /**
      * 
@@ -31,7 +31,7 @@ public interface ITbClientePfService {
      * @throws Exception
      * @throws Throwable
      */
-    List<TbClientePfDTO> consultar()  throws Exception, Throwable;
+    List<ClientePfDTO> consultar()  throws Exception, Throwable;
     
     /**
      * 
@@ -40,7 +40,7 @@ public interface ITbClientePfService {
      * @throws Exception
      * @throws Throwable
      */
-    TbClientePfDTO getTbClientePfById(int id)  throws Exception, Throwable;
+    ClientePfDTO getClientePfById(int id)  throws Exception, Throwable;
     
     /**
      * 
@@ -48,5 +48,5 @@ public interface ITbClientePfService {
      * @throws Exception
      * @throws Throwable
      */
-    void deleteTbClientePf(int id)  throws Exception, Throwable;
+    void deleteClientePf(int id)  throws Exception, Throwable;
 }

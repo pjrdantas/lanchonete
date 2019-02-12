@@ -10,12 +10,12 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.ztec.model.dto.TbClientePfDTO;
-import br.com.ztec.repository.impl.ItbClientePfDAO;
+import br.com.ztec.model.dto.ClientePfDTO;
+import br.com.ztec.repository.impl.IclientePfRepository;
 
 @Transactional
 @Repository
-public class TbClientePfDAO implements ItbClientePfDAO {
+public class ClientePfRepository implements IclientePfRepository {
 	
 	@Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
@@ -25,7 +25,7 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * INCLUI CLIENTE PESSOA FISICA 
 	 */
 	@Override
-	public void addTbClientePfDTO(TbClientePfDTO tbClientePfDTO) throws Exception, Throwable {
+	public void addClientePfDTO(ClientePfDTO clientePfDTO) throws Exception, Throwable {
 		
 		
 		StringBuilder sql = new StringBuilder();
@@ -39,16 +39,16 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 		sql.append( "  tb_cliente_pf_nome, ");
 		sql.append( "  tb_cliente_pf_sexo, ");
 		sql.append( "  tb_cliente_pf_status) ");
-		sql.append( "  values (:id, :tbClientePfCpf, :tbClientePfCadastramento, :tbClientePfNascimento, :tbClientePfNome, :tbClientePfSexo, :tbClientePfStatus)");
+		sql.append( "  values (:id, :clientePfCpf, :clientePfCadastramento, :clientePfNascimento, :clientePfNome, :clientePfSexo, :clientePfStatus)");
 
 		SqlParameterSource params = new MapSqlParameterSource()
-				.addValue("id", tbClientePfDTO.getId())				
-				.addValue("tbClientePfCpf", tbClientePfDTO.getTbClientePfCpf())
-				.addValue("tbClientePfCadastramento", new Date())
-				.addValue("tbClientePfNascimento", tbClientePfDTO.getTbClientePfNascimento())
-				.addValue("tbClientePfNome", tbClientePfDTO.getTbClientePfNome())
-				.addValue("tbClientePfSexo", tbClientePfDTO.getTbClientePfSexo())
-				.addValue("tbClientePfStatus", 1);
+				.addValue("id", clientePfDTO.getId())				
+				.addValue("clientePfCpf", clientePfDTO.getClientePfCpf())
+				.addValue("clientePfCadastramento", new Date())
+				.addValue("clientePfNascimento", clientePfDTO.getClientePfNascimento())
+				.addValue("clientePfNome", clientePfDTO.getClientePfNome())
+				.addValue("clientePfSexo", clientePfDTO.getClientePfSexo())
+				.addValue("clientePfStatus", 1);
 		
 		try{
 	    	 jdbcTemplate.update(sql.toString(), params);	         
@@ -64,7 +64,7 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * UPDATE DO CLIENTE PESSOA FISICA
 	 */
 	@Override
-	public void updateTbClientePfDTO(TbClientePfDTO tbClientePfDTO) throws Exception, Throwable {
+	public void updateClientePfDTO(ClientePfDTO clientePfDTO) throws Exception, Throwable {
 		
 
 		
@@ -72,22 +72,22 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 		
 		sql.append(" UPDATE tb_cliente_pf ");
 		sql.append(" SET  ");
-		sql.append(" tb_cliente_pf_cadastramento = :tbClientePfCadastramento, ");
-		sql.append(" tb_cliente_pf_cpf = :tbClientePfCpf, ");
-		sql.append(" tb_cliente_pf_nascimento = :tbClientePfNascimento, ");
-		sql.append(" tb_cliente_pf_nome = :tbClientePfNome, ");
-		sql.append(" tb_cliente_pf_sexo = :tbClientePfSexo, ");
-		sql.append(" tb_cliente_pf_status = :tbClientePfStatus ");
+		sql.append(" tb_cliente_pf_cadastramento = :clientePfCadastramento, ");
+		sql.append(" tb_cliente_pf_cpf = :clientePfCpf, ");
+		sql.append(" tb_cliente_pf_nascimento = :clientePfNascimento, ");
+		sql.append(" tb_cliente_pf_nome = :clientePfNome, ");
+		sql.append(" tb_cliente_pf_sexo = :clientePfSexo, ");
+		sql.append(" tb_cliente_pf_status = :clientePfStatus ");
 		sql.append(" WHERE id = :id");
 		
 		SqlParameterSource params = new MapSqlParameterSource()
-				.addValue("id", tbClientePfDTO.getId())				
-				.addValue("tbClientePfCpf", tbClientePfDTO.getTbClientePfCpf())
-				.addValue("tbClientePfCadastramento", new Date())
-				.addValue("tbClientePfNascimento", tbClientePfDTO.getTbClientePfNascimento())
-				.addValue("tbClientePfNome", tbClientePfDTO.getTbClientePfNome())
-				.addValue("tbClientePfSexo", tbClientePfDTO.getTbClientePfSexo())
-				.addValue("tbClientePfStatus", tbClientePfDTO.getTbClientePfStatus());
+				.addValue("id", clientePfDTO.getId())				
+				.addValue("clientePfCpf", clientePfDTO.getClientePfCpf())
+				.addValue("clientePfCadastramento", new Date())
+				.addValue("clientePfNascimento", clientePfDTO.getClientePfNascimento())
+				.addValue("clientePfNome", clientePfDTO.getClientePfNome())
+				.addValue("clientePfSexo", clientePfDTO.getClientePfSexo())
+				.addValue("clientePfStatus", clientePfDTO.getClientePfStatus());
 		
 		try{
 	    	 jdbcTemplate.update(sql.toString(), params);
@@ -124,20 +124,20 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * @throws Exception
 	 * @throws Throwable
 	 */
-	private List<TbClientePfDTO> devolveListaObjetos(StringBuilder sql, SqlParameterSource params)  throws Exception, Throwable  {
+	private List<ClientePfDTO> devolveListaObjetos(StringBuilder sql, SqlParameterSource params)  throws Exception, Throwable  {
 		return jdbcTemplate.query(sql.toString(), params, (rs, i) -> {
 		
-			TbClientePfDTO tbClientePfDTO = new TbClientePfDTO();
+			ClientePfDTO clientePfDTO = new ClientePfDTO();
 
-			tbClientePfDTO.setId(rs.getInt("id"));
-			tbClientePfDTO.setTbClientePfCadastramento(rs.getString("tb_cliente_pf_cadastramento"));
-			tbClientePfDTO.setTbClientePfCpf(rs.getString("tb_cliente_pf_cpf"));
-			tbClientePfDTO.setTbClientePfNascimento(rs.getString("tb_cliente_pf_nascimento"));
-			tbClientePfDTO.setTbClientePfNome(rs.getString("tb_cliente_pf_nome"));
-			tbClientePfDTO.setTbClientePfSexo(rs.getString("tb_cliente_pf_sexo"));
-			tbClientePfDTO.setTbClientePfStatus(rs.getInt("tb_cliente_pf_status"));
+			clientePfDTO.setId(rs.getInt("id"));
+			clientePfDTO.setClientePfCadastramento(rs.getString("tb_cliente_pf_cadastramento"));
+			clientePfDTO.setClientePfCpf(rs.getString("tb_cliente_pf_cpf"));
+			clientePfDTO.setClientePfNascimento(rs.getString("tb_cliente_pf_nascimento"));
+			clientePfDTO.setClientePfNome(rs.getString("tb_cliente_pf_nome"));
+			clientePfDTO.setClientePfSexo(rs.getString("tb_cliente_pf_sexo"));
+			clientePfDTO.setClientePfStatus(rs.getInt("tb_cliente_pf_status"));
 				
-	return tbClientePfDTO;
+	return clientePfDTO;
 	 
 		});
 	}
@@ -147,7 +147,7 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * LISTAR CLIENTES PESSOA FISICA
 	 */
 	@Override
-	public List<TbClientePfDTO> getAllTbClientePfs() throws Exception, Throwable {
+	public List<ClientePfDTO> getAllClientePfs() throws Exception, Throwable {
 		
 		StringBuilder sql = new StringBuilder(sqlSelectPrincipal)		
 		.append(" order by tb_cliente_pf_nome ");
@@ -169,21 +169,21 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * @throws Exception
 	 * @throws Throwable
 	 */
-	private TbClientePfDTO devolveObjeto(StringBuilder sql, SqlParameterSource params)  throws Exception, Throwable  {
+	private ClientePfDTO devolveObjeto(StringBuilder sql, SqlParameterSource params)  throws Exception, Throwable  {
 		return jdbcTemplate.queryForObject(sql.toString(), params, (rs, i) -> {
 			
 			
-			TbClientePfDTO tbClientePfDTO = new TbClientePfDTO();
+			ClientePfDTO clientePfDTO = new ClientePfDTO();
 
-			tbClientePfDTO.setId(rs.getInt("id"));
-			tbClientePfDTO.setTbClientePfCadastramento(rs.getString("tb_cliente_pf_cadastramento"));
-			tbClientePfDTO.setTbClientePfCpf(rs.getString("tb_cliente_pf_cpf"));
-			tbClientePfDTO.setTbClientePfNascimento(rs.getString("tb_cliente_pf_nascimento"));
-			tbClientePfDTO.setTbClientePfNome(rs.getString("tb_cliente_pf_nome"));
-			tbClientePfDTO.setTbClientePfSexo(rs.getString("tb_cliente_pf_sexo"));
-			tbClientePfDTO.setTbClientePfStatus(rs.getInt("tb_cliente_pf_status"));
+			clientePfDTO.setId(rs.getInt("id"));
+			clientePfDTO.setClientePfCadastramento(rs.getString("tb_cliente_pf_cadastramento"));
+			clientePfDTO.setClientePfCpf(rs.getString("tb_cliente_pf_cpf"));
+			clientePfDTO.setClientePfNascimento(rs.getString("tb_cliente_pf_nascimento"));
+			clientePfDTO.setClientePfNome(rs.getString("tb_cliente_pf_nome"));
+			clientePfDTO.setClientePfSexo(rs.getString("tb_cliente_pf_sexo"));
+			clientePfDTO.setClientePfStatus(rs.getInt("tb_cliente_pf_status"));
 						
-			return tbClientePfDTO;
+			return clientePfDTO;
 
 		});
 	}
@@ -192,7 +192,7 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * CONSULTAR PESSOA FISICA POR ID
 	 */
 	@Override
-	public TbClientePfDTO getTbClientePfById(int id) throws Exception, Throwable {
+	public ClientePfDTO getClientePfById(int id) throws Exception, Throwable {
 		
 		StringBuilder sql = new StringBuilder(sqlSelectPrincipal);		
 		sql.append(" WHERE id = :id ");
@@ -209,7 +209,7 @@ public class TbClientePfDAO implements ItbClientePfDAO {
 	 * DELETA CLIENTE PESSOA FISICA POR ID
 	 */
 	@Override
-	public void deleteTbClientePf(int id) throws Exception, Throwable {
+	public void deleteClientePf(int id) throws Exception, Throwable {
 		
 		StringBuilder sql = new StringBuilder();
 		

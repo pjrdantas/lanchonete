@@ -3,29 +3,29 @@ package br.com.ztec.repository.impl;
 
 import java.util.List;
 
-import br.com.ztec.model.dto.TbEnderecoDTO;
+import br.com.ztec.model.dto.EnderecoDTO;
 
 
 
 
 
-public interface ItbEnderecoDAO {
+public interface IEnderecoRepository {
 	
     /**
      * INCLUIR ENDERECO
-     * @param tbEnderecoDTO
+     * @param enderecoDTO
      * @throws Exception
      * @throws Throwable
      */
-    void addTbEnderecoDTO(TbEnderecoDTO tbEnderecoDTO)  throws Exception, Throwable;
+    void addTbEnderecoDTO(EnderecoDTO enderecoDTO)  throws Exception, Throwable;
     
     /**
      * EDITAR ENDERECO
-     * @param tbEnderecoDTO
+     * @param enderecoDTO
      * @throws Exception
      * @throws Throwable
      */
-    void updateTbEnderecoDTO(TbEnderecoDTO tbEnderecoDTO)  throws Exception, Throwable;
+    void updateTbEnderecoDTO(EnderecoDTO enderecoDTO)  throws Exception, Throwable;
     
     /**
      * LISTAR TODOS ENDERECOS
@@ -33,7 +33,7 @@ public interface ItbEnderecoDAO {
      * @throws Exception
      * @throws Throwable
      */
-    List<TbEnderecoDTO> getAllTbEnderecos()  throws Exception, Throwable;
+    List<EnderecoDTO> getAllTbEnderecos()  throws Exception, Throwable;
     
     /**
      * PESQUISAR ENDERECO POR ID
@@ -42,7 +42,7 @@ public interface ItbEnderecoDAO {
      * @throws Exception
      * @throws Throwable
      */
-    TbEnderecoDTO getTbEnderecoById(int id)  throws Exception, Throwable;
+    EnderecoDTO getTbEnderecoById(int id)  throws Exception, Throwable;
     
     /**
      * DELETAR ENDERECO POR ID

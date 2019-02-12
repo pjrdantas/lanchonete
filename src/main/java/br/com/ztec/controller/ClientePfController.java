@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ztec.model.dto.TbClientePfDTO;
+import br.com.ztec.model.dto.ClientePfDTO;
 import br.com.ztec.response.ResponseModel;
-import br.com.ztec.service.impl.ITbClientePfService;
-
+import br.com.ztec.service.impl.IClientePfService;
 
 
 
@@ -29,21 +28,21 @@ public class ClientePfController {
 	
 	
 	@Autowired
-	private ITbClientePfService clientePfService;
+	private IClientePfService clientePfService;
 
 
 	/**
 	 * 
-	 * @param tbClientePfDTO
+	 * @param clientePfDTO
 	 * @return
 	 * @throws Exception
 	 * @throws Throwable
 	 */
 	@RequestMapping(value="/clientePf", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody ResponseModel salvar(@RequestBody TbClientePfDTO tbClientePfDTO)  throws Exception, Throwable {      
+	public @ResponseBody ResponseModel salvar(@RequestBody ClientePfDTO clientePfDTO)  throws Exception, Throwable {      
 
 		try {			 
-			this.clientePfService.addTbClientePfDTO(tbClientePfDTO); 
+			this.clientePfService.addClientePfDTO(clientePfDTO); 
 			return new ResponseModel(1,"Cliente PF salvo com sucesso!"); 
 		}catch(Exception e) {
 			return new ResponseModel(0,e.getMessage());			
@@ -54,18 +53,18 @@ public class ClientePfController {
 	
 	/**
 	 * 
-	 * @param tbClientePfDTO
+	 * @param clientePfDTO
 	 * @return
 	 * @throws Exception
 	 * @throws Throwable
 	 */
 	@RequestMapping(value="/clientePf", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody ResponseModel atualizar(@RequestBody TbClientePfDTO tbClientePfDTO)  throws Exception, Throwable {
+	public @ResponseBody ResponseModel atualizar(@RequestBody ClientePfDTO clientePfDTO)  throws Exception, Throwable {
 
 
 		
 		try {			 
-			this.clientePfService.updateTbClientePfDTO(tbClientePfDTO);		
+			this.clientePfService.updateClientePfDTO(clientePfDTO);		
 			return new ResponseModel(1,"Cliente PF atualizado com sucesso!"); 
 		}catch(Exception e) { 
 			return new ResponseModel(0,e.getMessage());
@@ -82,7 +81,7 @@ public class ClientePfController {
 	 * @throws Throwable
 	 */
 	@RequestMapping(value="/clientePf", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody List<TbClientePfDTO> consultar()  throws Exception, Throwable {
+	public @ResponseBody List<ClientePfDTO> consultar()  throws Exception, Throwable {
 				
 		return this.clientePfService.consultar();			
 	}
@@ -98,10 +97,10 @@ public class ClientePfController {
 	 * @throws Throwable
 	 */
 	@RequestMapping(value="/clientePf/{idClientePf}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody TbClientePfDTO buscar(@PathVariable("idClientePf") String idClientePf)  throws Exception, Throwable {
+	public @ResponseBody ClientePfDTO buscar(@PathVariable("idClientePf") String idClientePf)  throws Exception, Throwable {
 		
 		int id = Integer.parseInt(idClientePf);
-		return this.clientePfService.getTbClientePfById(id);
+		return this.clientePfService.getClientePfById(id);
 		
 	}
 	
@@ -120,7 +119,7 @@ public class ClientePfController {
 		int id = Integer.parseInt(idClientePf);
 		 
 		try { 
-			clientePfService.deleteTbClientePf(id); 
+			clientePfService.deleteClientePf(id); 
 			return new ResponseModel(1, "Cliente PF excluido com sucesso!"); 
 		}catch(Exception e) {
 			return new ResponseModel(0, e.getMessage());

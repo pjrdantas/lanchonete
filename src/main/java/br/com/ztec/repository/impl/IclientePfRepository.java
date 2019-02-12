@@ -3,29 +3,29 @@ package br.com.ztec.repository.impl;
 
 import java.util.List;
 
-import br.com.ztec.model.dto.TbClientePfDTO;
+import br.com.ztec.model.dto.ClientePfDTO;
 
 
 
 
 
-public interface ItbClientePfDAO {
+public interface IclientePfRepository {
 	
     /**
      * INCLUIR CLIENTE PESSOA FISICA
-     * @param tbClientePfDTO
+     * @param clientePfDTO
      * @throws Exception
      * @throws Throwable
      */
-    void addTbClientePfDTO(TbClientePfDTO tbClientePfDTO)  throws Exception, Throwable;
+    void addClientePfDTO(ClientePfDTO clientePfDTO)  throws Exception, Throwable;
     
     /**
      * EDITAR CLIENTE PESSOA FISICA
-     * @param tbClientePfDTO
+     * @param clientePfDTO
      * @throws Exception
      * @throws Throwable
      */
-    void updateTbClientePfDTO(TbClientePfDTO tbClientePfDTO)  throws Exception, Throwable;
+    void updateClientePfDTO(ClientePfDTO clientePfDTO)  throws Exception, Throwable;
     
     /**
      * LISTAR TODOS CLIENTES PESSOA FISICA
@@ -33,7 +33,7 @@ public interface ItbClientePfDAO {
      * @throws Exception
      * @throws Throwable
      */
-    List<TbClientePfDTO> getAllTbClientePfs()  throws Exception, Throwable;
+    List<ClientePfDTO> getAllClientePfs()  throws Exception, Throwable;
     
     /**
      * PESQUISAR CLIENTE PESSOA FISICA POR ID
@@ -42,7 +42,7 @@ public interface ItbClientePfDAO {
      * @throws Exception
      * @throws Throwable
      */
-    TbClientePfDTO getTbClientePfById(int id)  throws Exception, Throwable;
+    ClientePfDTO getClientePfById(int id)  throws Exception, Throwable;
     
     /**
      * DELETAR CLIENTE PESSOA FISICA POR ID
@@ -50,7 +50,7 @@ public interface ItbClientePfDAO {
      * @throws Exception
      * @throws Throwable
      */
-    void deleteTbClientePf(int id)  throws Exception, Throwable;
+    void deleteClientePf(int id)  throws Exception, Throwable;
     
     
    

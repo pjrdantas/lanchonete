@@ -1,5 +1,5 @@
 package br.com.ztec.model.dto;
 
-public class TbContatoDTO {
+public class ContatoDTO {
 
 }

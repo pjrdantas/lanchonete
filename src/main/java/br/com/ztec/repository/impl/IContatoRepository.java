@@ -3,29 +3,29 @@ package br.com.ztec.repository.impl;
 
 import java.util.List;
 
-import br.com.ztec.model.dto.TbContatoDTO;
+import br.com.ztec.model.dto.ContatoDTO;
 
 
 
 
 
-public interface ItbContatoDAO {
+public interface IContatoRepository {
 	
     /**
      * INCLUIR CONTATO
-     * @param tbContatoDTO
+     * @param contatoDTO
      * @throws Exception
      * @throws Throwable
      */
-    void addTbContatoDTO(TbContatoDTO tbContatoDTO)  throws Exception, Throwable;
+    void addTbContatoDTO(ContatoDTO contatoDTO)  throws Exception, Throwable;
     
     /**
      * EDITAR CONTATO
-     * @param tbContatoDTO
+     * @param contatoDTO
      * @throws Exception
      * @throws Throwable
      */
-    void updateTbContatoDTO(TbContatoDTO tbContatoDTO)  throws Exception, Throwable;
+    void updateTbContatoDTO(ContatoDTO contatoDTO)  throws Exception, Throwable;
     
     /**
      * LISTAR TODOS CONTATOS
@@ -33,7 +33,7 @@ public interface ItbContatoDAO {
      * @throws Exception
      * @throws Throwable
      */
-    List<TbContatoDTO> getAllTbContatos()  throws Exception, Throwable;
+    List<ContatoDTO> getAllTbContatos()  throws Exception, Throwable;
     
     /**
      * PESQUISAR CONTATO POR ID
@@ -42,7 +42,7 @@ public interface ItbContatoDAO {
      * @throws Exception
      * @throws Throwable
      */
-    TbContatoDTO getTbContatoById(int id)  throws Exception, Throwable;
+    ContatoDTO getTbContatoById(int id)  throws Exception, Throwable;
     
     /**
      * DELETAR CONTATO POR ID

@@ -1,5 +1,5 @@
 package br.com.ztec.repository;
 
-public class TbFornecedorPjDAO {
+public class FornecedorPjRepository {
 
 }

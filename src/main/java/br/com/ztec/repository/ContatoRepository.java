@@ -1,5 +1,5 @@
 package br.com.ztec.repository;
 
-public class TbEnderecoDAO {
+public class ContatoRepository {
 
 }

@@ -3,29 +3,29 @@ package br.com.ztec.repository.impl;
 
 import java.util.List;
 
-import br.com.ztec.model.dto.TbFornecedorPfDTO;
+import br.com.ztec.model.dto.FornecedorPfDTO;
 
 
 
 
 
-public interface ItbFornecedorPfDAO {
+public interface IFornecedorPjRepository {
 	
     /**
      * INCLUIR FORNECEDOR PESSOA FISICA
-     * @param tbFornecedorPfDTO
+     * @param fornecedorPfDTO
      * @throws Exception
      * @throws Throwable
      */
-    void addTbFornecedorPfDTO(TbFornecedorPfDTO tbFornecedorPfDTO)  throws Exception, Throwable;
+    void addTbFornecedorPfDTO(FornecedorPfDTO fornecedorPfDTO)  throws Exception, Throwable;
     
     /**
      * EDITAR FORNECEDOR PESSOA FISICA
-     * @param tbFornecedorPfDTO
+     * @param fornecedorPfDTO
      * @throws Exception
      * @throws Throwable
      */
-    void updateTbFornecedorPfDTO(TbFornecedorPfDTO tbFornecedorPfDTO)  throws Exception, Throwable;
+    void updateTbFornecedorPfDTO(FornecedorPfDTO fornecedorPfDTO)  throws Exception, Throwable;
     
     /**
      * LISTAR TODOS FORNECEDORS PESSOA FISICA
@@ -33,7 +33,7 @@ public interface ItbFornecedorPfDAO {
      * @throws Exception
      * @throws Throwable
      */
-    List<TbFornecedorPfDTO> getAllTbFornecedorPfs()  throws Exception, Throwable;
+    List<FornecedorPfDTO> getAllTbFornecedorPfs()  throws Exception, Throwable;
     
     /**
      * PESQUISAR FORNECEDOR PESSOA FISICA POR ID
@@ -42,7 +42,7 @@ public interface ItbFornecedorPfDAO {
      * @throws Exception
      * @throws Throwable
      */
-    TbFornecedorPfDTO getTbFornecedorPfById(int id)  throws Exception, Throwable;
+    FornecedorPfDTO getTbFornecedorPfById(int id)  throws Exception, Throwable;
     
     /**
      * DELETAR FORNECEDOR PESSOA FISICA POR ID
